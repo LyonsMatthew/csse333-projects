@@ -55,7 +55,7 @@ CREATE TABLE [dbo].[Gift](
 
 CREATE TABLE [dbo].[BlackRock](
 	id int PRIMARY KEY CLUSTERED,
-	PetName varchar(20),
+	PetName varchar(100),
 	RockName varchar(20),
 	Family varchar(20),
 	DoB datetime,
@@ -64,9 +64,9 @@ CREATE TABLE [dbo].[BlackRock](
 );
 
 CREATE TABLE [dbo].[Reindeer](
-	Name varchar(30) PRIMARY KEY CLUSTERED,
-	NoseColor varchar(10),
-	ThemeSong varchar(50),
+	Name varchar(100) PRIMARY KEY CLUSTERED,
+	NoseColor varchar(100),
+	ThemeSong varchar(100),
 	FedBy int,
 
 	FOREIGN KEY (FedBy) REFERENCES Elf(id)
@@ -110,19 +110,19 @@ CREATE TABLE [dbo].[Wants](
 Create Table [dbo].[Santa](
 	id int,
 	isSanta bit,
-	Name varchar,
+	Name varchar(100),
 
-	Primary Key(id),
+	Primary Key(id)
 );
 
 Create Table [dbo].[Ohoho](
 	id int,
-	UrlLink varchar,
+	UrlLink varchar(1000),
 	Length decimal(3),
 	Girth decimal(3),
 	Pitch decimal(3),
-	Santa varchar,
+	Santa int,
 
-	Foreign Key (id) References Santa(id),
+	Foreign Key (Santa) References Santa(id),
 	Primary Key(id)
 );
