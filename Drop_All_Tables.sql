@@ -1,0 +1,15 @@
+USE ChristmasWorkshop
+GO
+
+DROP TABLE Ohoho
+DROP TABLE Santa
+DROP TABLE Wants
+DROP TABLE Receives
+DROP TABLE Kid
+DROP TABLE House
+DROP TABLE Reindeer
+DROP TABLE BlackRock
+DROP TABLE Gift
+DROP TABLE Elf
+DROP TABLE Manufacturer
+DROP TABLE Person
