@@ -1,16 +1,15 @@
 --
--- Insert a gift into the gift table
+-- Remove a gift from the gift table
 --
 -------------------------------------------
 -- Demo:
 -- DECLARE @Status SMALLINT
--- EXEC @Status =  [insert_gift] 12, 'yeah', 37
+-- EXEC @Status =  [remove_gift] 12, 'yeah', 37
 -- SELECT Status = @Status
 -------------------------------------------
--- Timmy D'Avello
--- January 17, 2019
+-- Matthew Lyons
+-- January 18, 2019
 
-/****** Object:  StoredProcedure [dbo].[insert_Order Details_1]    Script Date: 1/16/2019 7:58:14 PM ******/
 USE ChristmasWorkshop
 GO
 
@@ -19,9 +18,8 @@ GO
 SET QUOTED_IDENTIFIER ON
 GO
 
-CREATE PROCEDURE [dbo].[insert_gift]
+CREATE PROCEDURE [dbo].[remove_gift]
 (@GiftID_1 [int],
-@Name_2 [varchar](100),
 @ManufacturerID_3 [int])
 AS
 
@@ -31,16 +29,16 @@ BEGIN
 	PRINT 'The manufacturer ' + CONVERT(varchar(30), @ManufacturerID_3) + ' is not valid because it is not in the manufacturer table'
 	RETURN 1
 END
--- Checks to see if the GiftID is already in the table
-IF (SELECT COUNT(Gift.id) FROM Gift WHERE id = @GiftID_1) > 0
+-- Checks to see if the GiftID is valid
+IF (SELECT COUNT(Gift.id) FROM Gift WHERE id = @GiftID_1) = 0
 BEGIN
-	PRINT 'The gift ' + CONVERT(varchar(30), @GiftID_1) + ' is not valid because it is already in the gift table'
+	PRINT 'The gift ' + CONVERT(varchar(30), @GiftID_1) + ' is not valid because it is not in the gift table'
 	RETURN 1
 END
 
--- Insert the values into the gift table
-INSERT INTO Gift (id, name, manufacturer)
-VALUES (@GiftID_1, @Name_2, @ManufacturerID_3)
+-- Remove the row from the gift table
+DELETE FROM Gift
+WHERE id = @GiftID_1 AND manufacturer = @ManufacturerID_3
 
 -- Return 0 if the procedure is successful, otherwise and errorcode with a message
 RETURN 0
