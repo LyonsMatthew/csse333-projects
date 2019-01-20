@@ -19,7 +19,7 @@ USE ChristmasWorkshop
 GO
 
 Create Table [dbo].[Person](
-	id int,
+	id int IDENTITY(1,1),
 	PersonName varchar(100),
 	DoB date,
 	Sex char,
@@ -28,7 +28,7 @@ Create Table [dbo].[Person](
 );
 
 CREATE TABLE [dbo].[Manufacturer](
-	id int PRIMARY KEY CLUSTERED,
+	id int IDENTITY(1,1) PRIMARY KEY CLUSTERED,
 	Address varchar(100)
 );
 
@@ -45,7 +45,7 @@ Create Table [dbo].[Elf](
 );
 
 CREATE TABLE [dbo].[Gift](
-	id int,
+	id int IDENTITY(1,1),
 	Name varchar(100),
 	Manufacturer int,
 
@@ -73,7 +73,7 @@ CREATE TABLE [dbo].[Reindeer](
 );
 
 CREATE TABLE [dbo].[House](
-	id int PRIMARY KEY CLUSTERED, 
+	id int IDENTITY(1,1) PRIMARY KEY CLUSTERED, 
 	Address varchar(100), 
 	HasCookies bit, 
 	HasMilk bit
@@ -108,7 +108,7 @@ CREATE TABLE [dbo].[Wants](
 );
 
 Create Table [dbo].[Santa](
-	id int,
+	id int IDENTITY(1,1),
 	isSanta bit,
 	Name varchar(100),
 
@@ -116,13 +116,13 @@ Create Table [dbo].[Santa](
 );
 
 Create Table [dbo].[Ohoho](
-	id int,
+	id int IDENTITY(1,1),
 	UrlLink varchar(1000),
 	Length decimal(3),
 	Girth decimal(3),
 	Pitch decimal(3),
 	Santa int,
 
-	Foreign Key (Santa) References Santa(id),
-	Primary Key(id)
+	Primary Key(id),
+	Foreign Key (Santa) References Santa(id)
 );

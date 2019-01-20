@@ -19,28 +19,21 @@ GO
 SET QUOTED_IDENTIFIER ON
 GO
 
-CREATE PROCEDURE [dbo].[insert_gift]
-(@GiftID_1 [int],
-@Name_2 [varchar](100),
-@ManufacturerID_3 [int])
+ALTER PROCEDURE [dbo].[insert_gift]
+(@Name_1 [varchar](100),
+@ManufacturerID_2 [int])
 AS
 
 -- Checks to see if the ManufacturerID is valid
-IF (SELECT COUNT(Manufacturer.id) FROM Manufacturer WHERE id = @ManufacturerID_3) = 0
+IF (SELECT COUNT(Manufacturer.id) FROM Manufacturer WHERE id = @ManufacturerID_2) = 0
 BEGIN
-	PRINT 'The manufacturer ' + CONVERT(varchar(30), @ManufacturerID_3) + ' is not valid because it is not in the manufacturer table'
-	RETURN 1
-END
--- Checks to see if the GiftID is already in the table
-IF (SELECT COUNT(Gift.id) FROM Gift WHERE id = @GiftID_1) > 0
-BEGIN
-	PRINT 'The gift ' + CONVERT(varchar(30), @GiftID_1) + ' is not valid because it is already in the gift table'
+	PRINT 'The manufacturer ' + CONVERT(varchar(30), @ManufacturerID_2) + ' is not valid because it is not in the manufacturer table'
 	RETURN 1
 END
 
 -- Insert the values into the gift table
-INSERT INTO Gift (id, name, manufacturer)
-VALUES (@GiftID_1, @Name_2, @ManufacturerID_3)
+INSERT INTO Gift (name, manufacturer)
+VALUES (@Name_1, @ManufacturerID_2)
 
 -- Return 0 if the procedure is successful, otherwise and errorcode with a message
 RETURN 0
