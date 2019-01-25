@@ -24,13 +24,20 @@ begin
 	return @result
 end
 
-if (@newDOB != 'M' or @newDOB != 'F') 
+if (@newSex = 'M') 
 begin
 	set @result = 3
 	print N'Gender Invalid'
 	return @result
 end
 
+if (@newSex != 'F') 
+
+begin
+	set @result = 3
+	print N'Gender Invalid'
+	return @result
+end
 insert into [Person] ([id], [personName], [dob], [sex])
 values (@newPersonID, @newPersonName, @newDOB, @newSex)
 
