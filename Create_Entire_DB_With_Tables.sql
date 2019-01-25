@@ -23,7 +23,7 @@ Create Table [dbo].[Person](
 	PersonName varchar(100),
 	DoB date,
 	Sex char,
-
+	
 	Primary Key(id)
 );
 
