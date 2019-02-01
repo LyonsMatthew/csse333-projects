@@ -38,8 +38,6 @@ public class Main {
 		if (!success) System.exit(1);
 		System.out.println("Connected!");
 		
-		GiftService gift = new GiftService(con);
-		
 		boolean run = true;
 		while (run) {
 			System.out.println("What would you like to do?");
