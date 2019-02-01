@@ -1,0 +1,24 @@
+procedure insert_gift
+argument Name
+argument Manufacturer ID
+error 1 The manufacturer ID is not valid because it is not in the manufacturer table.
+
+procedure remove_gift
+argument Gift ID
+argument Manufacturer ID
+error 1 The manufacturer ID is not valid because it is not in the manufacturer table
+error 2 The gift ID is not valid because it is not in the gift table
+
+procedure InsertManufacturer
+argument Manufacturer Address
+
+procedure remove_Manufacturer
+argument Manufacturer ID
+argument Result
+error 1 The manufacturer ID is not valid because it is not in the manufacturer table
+
+procedure insert_blackrock
+argument Pet Name
+argument Date of Birth
+argument Manufacturer ID
+error 1 The manufacturer ID is not valid because it is not in the manufacturer table
