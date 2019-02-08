@@ -4,7 +4,6 @@ import java.util.Map;
 import java.util.Scanner;
 
 import christmasworkshop.services.DatabaseConnectionService;
-import christmasworkshop.services.GiftService;
 import christmasworkshop.services.StoredProcedure;
 
 public class Main {

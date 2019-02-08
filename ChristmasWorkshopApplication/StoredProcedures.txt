@@ -22,3 +22,8 @@ argument Pet Name
 argument Date of Birth
 argument Manufacturer ID
 error 1 The manufacturer ID is not valid because it is not in the manufacturer table
+
+procedure view_kid_needs
+argument Kid Name
+
+procedure select_blackrock
