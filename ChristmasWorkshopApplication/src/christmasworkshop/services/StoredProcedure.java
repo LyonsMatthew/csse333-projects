@@ -45,7 +45,7 @@ public class StoredProcedure {
 		if (arguments.size() > 0) {
 			call_string = call_string.substring(0, call_string.length()-2) + ")}";
 		} else call_string = call_string.substring(0, call_string.length()-1) + "}";
-		System.out.println(call_string);
+//		System.out.println(call_string);
 //		System.out.print(">> Name: ");
 //		String name = in.next();
 //		System.out.print(">> Manufacturer ID: ");

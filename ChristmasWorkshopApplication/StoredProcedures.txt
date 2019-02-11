@@ -1,30 +1,42 @@
 procedure alter_Ohoho
+argument Ohoho ID
 argument New URL
 argument New Length
 argument New Girth
 argument New Pitch
 argument Santa ID
+error 1 The Ohoho ID is not valid because it is not in the Ohoho table
+error 2 The Santa ID is not valid because it is not in the Santa table
+error 3 Bad URL
+error 4 Values must be positive
 
 procedure alter_Santa
 argument Santa ID
 argument New IsSanta
 argument New Name
+error 1 The Santa ID is not valid because it is not in the Santa table
+error 2 IsSanta must be 0/1
 
 procedure create_Elf
 argument Wage
 argument Height
 argument Ear Length
 argument Works In
+error 1 The manufacturer ID is not valid because it is not in the manufacturer table
 
 procedure create_House
 argument Address
 argument Has Cookies
 argument Has Milk
+error 1 HasCookies must be 0/1
+error 2 HasMilk must be 0/1
 
 procedure create_Kid
 argument Kid ID
 argument New IsNice
 argument House
+error 2 IsNice must be 0/1
+error 3 The house ID is not valid because it is not in the house table
 
 procedure create_Ohoho
 argument URL
@@ -32,21 +44,27 @@ argument Length
 argument Girth
 argument Pitch
 argument Santa ID
+error 2 Bad URL
+error 1 Values must be positive
 
 procedure create_Person
 argument Name
 argument Date of Birth
 argument Sex
+error 2 Date invalid
+error 3 Gender invalid; M or F
 
 procedure create_Reindeer
 argument Name
 argument Nose Color
 argument Theme Song URL
 argument Fed By
+error 1 The elf ID is not valid because it is not in the elf table
 
 procedure create_Santa
 argument Is Santa
 argument Name
+error 2 IsSanta must be 0/1
 
 procedure insert_blackrock
 argument Pet Name
@@ -62,22 +80,31 @@ error 1 The manufacturer ID is not valid because it is not in the manufacturer t
 procedure insert_receives
 argument Kid ID
 argument Gift ID
+error 1 The kid ID is not valid because it is not in the kid table
+error 2 The gift ID is not valid because it is not in the gift table
+error 3 The kid ID already receives that gift
 
 procedure insert_wants
 argument Kid ID
 argument Gift ID
+error 1 The kid ID is not valid because it is not in the kid table
+error 2 The gift ID is not valid because it is not in the gift table
+error 3 The kid ID already wants that gift
 
 procedure InsertManufacturer
 argument Manufacturer Address
 
 procedure MakeKidNaughty
 argument Kid ID
+error 1 The kid ID is not valid because it is not in the kid table
 
 procedure MakeKidNice
 argument Kid ID
+error 1 The kid ID is not valid because it is not in the kid table
 
 procedure remove_elf
 argument Elf ID
+error 1 The elf ID is not valid because it is not in the elf table
 
 procedure remove_gift
 argument Gift ID
@@ -87,6 +114,7 @@ error 2 The gift ID is not valid because it is not in the gift table
 
 procedure remove_kid
 argument Kid ID
+error 1 The kid ID is not valid because it is not in the kid table
 
 procedure remove_Manufacturer
 argument Manufacturer ID
@@ -95,12 +123,16 @@ error 1 The manufacturer ID is not valid because it is not in the manufacturer t
 procedure remove_Ohoho
 argument Ohoho ID
 argument Santa ID
+error 1 The Ohoho ID is not valid because it is not in the Ohoho table
+error 2 The Santa ID is not valid because it is not in the Santa table
 
 procedure remove_Reindeer
 argument Name
+error 1 The reindeer ID is not valid because it is not in the reindeer table
 
 procedure remove_Santa
 argument Santa ID
+error 1 The Santa ID is not valid because it is not in the Santa table
 
 procedure select_blackrock
 procedure select_elf
@@ -118,12 +150,15 @@ procedure select_wants
 procedure update_manufacturer
 argument Manufacturer ID
 argument Address
+error 1 The manufacturer ID is not valid because it is not in the manufacturer table
 
 procedure update_reindeer
 argument New Name
 argument New Nose Color
 argument New Theme Song URL
 argument New FedBy
+error 1 The reindeer ID is not valid because it is not in the reindeer table
+error 2 The elf ID is not valid because it is not in the elf table
 
 procedure view_kid_needs
 argument Kid Name
@@ -133,3 +168,5 @@ argument Kid Name
 
 procedure view_kid_wants
 argument Kid Name
+
+procedure view_kids
