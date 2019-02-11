@@ -1,21 +1,52 @@
-procedure insert_gift
+procedure alter_Ohoho
+argument New URL
+argument New Length
+argument New Girth
+argument New Pitch
+argument Santa ID
+
+procedure alter_Santa
+argument Santa ID
+argument New IsSanta
+argument New Name
+
+procedure create_Elf
+argument Wage
+argument Height
+argument Ear Length
+argument Works In
+
+procedure create_House
+argument Address
+argument Has Cookies
+argument Has Milk
+
+procedure create_Kid
+argument Kid ID
+argument New IsNice
+argument House
+
+procedure create_Ohoho
+argument URL
+argument Length
+argument Girth
+argument Pitch
+argument Santa ID
+
+procedure create_Person
 argument Name
-argument Manufacturer ID
-error 1 The manufacturer ID is not valid because it is not in the manufacturer table.
+argument Date of Birth
+argument Sex
 
-procedure remove_gift
-argument Gift ID
-argument Manufacturer ID
-error 1 The manufacturer ID is not valid because it is not in the manufacturer table
-error 2 The gift ID is not valid because it is not in the gift table
+procedure create_Reindeer
+argument Name
+argument Nose Color
+argument Theme Song URL
+argument Fed By
 
-procedure InsertManufacturer
-argument Manufacturer Address
-
-procedure remove_Manufacturer
-argument Manufacturer ID
-argument Result
-error 1 The manufacturer ID is not valid because it is not in the manufacturer table
+procedure create_Santa
+argument Is Santa
+argument Name
 
 procedure insert_blackrock
 argument Pet Name
@@ -23,7 +54,82 @@ argument Date of Birth
 argument Manufacturer ID
 error 1 The manufacturer ID is not valid because it is not in the manufacturer table
 
+procedure insert_gift
+argument Name
+argument Manufacturer ID
+error 1 The manufacturer ID is not valid because it is not in the manufacturer table.
+
+procedure insert_receives
+argument Kid ID
+argument Gift ID
+
+procedure insert_wants
+argument Kid ID
+argument Gift ID
+
+procedure InsertManufacturer
+argument Manufacturer Address
+
+procedure MakeKidNaughty
+argument Kid ID
+
+procedure MakeKidNice
+argument Kid ID
+
+procedure remove_elf
+argument Elf ID
+
+procedure remove_gift
+argument Gift ID
+argument Manufacturer ID
+error 1 The manufacturer ID is not valid because it is not in the manufacturer table
+error 2 The gift ID is not valid because it is not in the gift table
+
+procedure remove_kid
+argument Kid ID
+
+procedure remove_Manufacturer
+argument Manufacturer ID
+error 1 The manufacturer ID is not valid because it is not in the manufacturer table
+
+procedure remove_Ohoho
+argument Ohoho ID
+argument Santa ID
+
+procedure remove_Reindeer
+argument Name
+
+procedure remove_Santa
+argument Santa ID
+
+procedure select_blackrock
+procedure select_elf
+procedure select_gift
+procedure select_house
+procedure select_kid
+procedure select_manufacturer
+procedure select_ohoho
+procedure select_person
+procedure select_receives
+procedure select_reindeer
+procedure select_santa
+procedure select_wants
+
+procedure update_manufacturer
+argument Manufacturer ID
+argument Address
+
+procedure update_reindeer
+argument New Name
+argument New Nose Color
+argument New Theme Song URL
+argument New FedBy
+
 procedure view_kid_needs
 argument Kid Name
 
-procedure select_blackrock
+procedure view_kid_receives
+argument Kid Name
+
+procedure view_kid_wants
+argument Kid Name

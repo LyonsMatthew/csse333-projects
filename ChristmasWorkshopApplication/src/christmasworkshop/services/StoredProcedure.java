@@ -1,6 +1,7 @@
 package christmasworkshop.services;
 
 import java.sql.CallableStatement;
+import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Types;
 import java.util.ArrayList;
@@ -41,7 +42,10 @@ public class StoredProcedure {
 			System.out.print(">> " + a + ": ");
 			arguments.add(in.nextLine());
 		}
-		call_string = call_string.substring(0, call_string.length()-2) + ")}";
+		if (arguments.size() > 0) {
+			call_string = call_string.substring(0, call_string.length()-2) + ")}";
+		} else call_string = call_string.substring(0, call_string.length()-1) + "}";
+		System.out.println(call_string);
 //		System.out.print(">> Name: ");
 //		String name = in.next();
 //		System.out.print(">> Manufacturer ID: ");
@@ -53,14 +57,31 @@ public class StoredProcedure {
 			cs.setString(i+2, arguments.get(i));
 		}
 		arguments.clear();
-		cs.execute();
-		int returnValue = cs.getInt(1);
+		ResultSet rs = null;
+		if (cs.execute()) {
+			rs = cs.getResultSet();
+		}
+		int returnValue = 0;
 		if (returnValueToMessage.containsKey(returnValue)) {
 			System.out.println("ERROR " + returnValue + ": " + returnValueToMessage.get(returnValue));
 			System.out.println("Operation aborted.");
 			return false;
 		}
-		System.out.println("Success!");
+		printResultSet(rs);
 		return true;
+	}
+	
+	public void printResultSet(ResultSet rs) throws SQLException {
+		if (rs == null) {
+			System.out.println("Success!");
+			return;
+		}
+		int col = rs.getMetaData().getColumnCount();
+		while (rs.next()) {
+			for(int i=1;i<col;i++) {
+				System.out.print(rs.getMetaData().getColumnName(i) + ": " + rs.getString(i) + ", ");
+			}
+			System.out.println(rs.getMetaData().getColumnName(col) + ": " + rs.getString(col));
+		}
 	}
 }
