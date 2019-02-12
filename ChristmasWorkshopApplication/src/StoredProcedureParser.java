@@ -30,8 +30,15 @@ public class StoredProcedureParser {
 					currentName = currentName.replaceAll("_", "");
 					currentName = currentName.toLowerCase();
 				} else if (line.startsWith("argument")) {
-					String argument = line.substring(9, line.length());
+					String[] argumentData = line.split(" ");
+					String type = argumentData[1];
+					String argument = "";
+					for(int i=2;i<argumentData.length;i++) {
+						argument += argumentData[i] + " ";
+					}
+					argument = argument.substring(0, argument.length()-1);
 					sp.addArgumentName(argument);
+					sp.addArgumentType(type);
 				} else if (line.startsWith("error")) {
 					int returnCode = Integer.parseInt(line.substring(6, 7));
 					String message = line.substring(8, line.length());

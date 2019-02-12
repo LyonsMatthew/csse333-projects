@@ -1,137 +1,119 @@
-procedure alter_Ohoho
-argument Ohoho ID
-argument New URL
-argument New Length
-argument New Girth
-argument New Pitch
-argument Santa ID
-error 1 The Ohoho ID is not valid because it is not in the Ohoho table
-error 2 The Santa ID is not valid because it is not in the Santa table
-error 3 Bad URL
-error 4 Values must be positive
-
-procedure alter_Santa
-argument Santa ID
-argument New IsSanta
-argument New Name
-error 1 The Santa ID is not valid because it is not in the Santa table
-error 2 IsSanta must be 0/1
-
-procedure create_Elf
-argument Wage
-argument Height
-argument Ear Length
-argument Works In
+procedure insert_blackrock
+argument varchar100 Pet Name
+argument date Date of Birth
+argument int Manufacturer ID
 error 1 The manufacturer ID is not valid because it is not in the manufacturer table
 
-procedure create_House
-argument Address
-argument Has Cookies
-argument Has Milk
-error 1 HasCookies must be 0/1
-error 2 HasMilk must be 0/1
-
-procedure create_Kid
-argument Kid ID
-argument New IsNice
-argument House
-error 2 IsNice must be 0/1
-error 3 The house ID is not valid because it is not in the house table
-
-procedure create_Ohoho
-argument URL
-argument Length
-argument Girth
-argument Pitch
-argument Santa ID
-error 2 Bad URL
-error 1 Values must be positive
-
-procedure create_Person
-argument Name
-argument Date of Birth
-argument Sex
-error 2 Date invalid
-error 3 Gender invalid; M or F
-
-procedure create_Reindeer
-argument Name
-argument Nose Color
-argument Theme Song URL
-argument Fed By
-error 1 The elf ID is not valid because it is not in the elf table
-
-procedure create_Santa
-argument Is Santa
-argument Name
-error 2 IsSanta must be 0/1
-
-procedure insert_blackrock
-argument Pet Name
-argument Date of Birth
-argument Manufacturer ID
+procedure insert_Elf
+argument int Person ID
+argument money Wage
+argument decimal18,3 Height
+argument decimal18,3 Ear Length
+argument int Works In
 error 1 The manufacturer ID is not valid because it is not in the manufacturer table
 
 procedure insert_gift
-argument Name
-argument Manufacturer ID
+argument varchar100 Name
+argument int Manufacturer ID
 error 1 The manufacturer ID is not valid because it is not in the manufacturer table.
 
+procedure insert_House
+argument varchar100 Address
+argument boolean Has Cookies
+argument boolean Has Milk
+error 1 HasCookies must be 0/1
+error 2 HasMilk must be 0/1
+
+procedure insert_Kid
+argument int Kid ID
+argument boolean IsNice
+argument int House
+error 2 IsNice must be 0/1
+error 3 The house ID is not valid because it is not in the house table
+
+procedure insert_manufacturer
+argument varchar100 Manufacturer Address
+
+procedure insert_Ohoho
+argument varchar1000 URL
+argument decimal18,3 Length
+argument decimal18,3 Girth
+argument decimal18,3 Pitch
+argument int Santa ID
+error 2 Bad URL
+error 1 Values must be positive
+
+procedure insert_Person
+argument varchar100 Name
+argument varchar100 Date of Birth
+argument varchar5 Sex
+error 2 Date invalid
+error 3 Gender invalid; M or F
+
 procedure insert_receives
-argument Kid ID
-argument Gift ID
+argument int Kid ID
+argument int Gift ID
 error 1 The kid ID is not valid because it is not in the kid table
 error 2 The gift ID is not valid because it is not in the gift table
 error 3 The kid ID already receives that gift
 
+procedure insert_Reindeer
+argument varchar100 Name
+argument varchar100 Nose Color
+argument varchar100 Theme Song URL
+argument int Fed By
+error 1 The elf ID is not valid because it is not in the elf table
+
+procedure insert_Santa
+argument boolean Is Santa
+argument varchar100 Name
+error 2 IsSanta must be 0/1
+
 procedure insert_wants
-argument Kid ID
-argument Gift ID
+argument int Kid ID
+argument int Gift ID
 error 1 The kid ID is not valid because it is not in the kid table
 error 2 The gift ID is not valid because it is not in the gift table
 error 3 The kid ID already wants that gift
 
-procedure InsertManufacturer
-argument Manufacturer Address
-
 procedure MakeKidNaughty
-argument Kid ID
+argument int Kid ID
 error 1 The kid ID is not valid because it is not in the kid table
 
 procedure MakeKidNice
-argument Kid ID
+argument int Kid ID
 error 1 The kid ID is not valid because it is not in the kid table
 
 procedure remove_elf
-argument Elf ID
+argument int Elf ID
 error 1 The elf ID is not valid because it is not in the elf table
 
 procedure remove_gift
-argument Gift ID
-argument Manufacturer ID
+argument int Gift ID
+argument int Manufacturer ID
 error 1 The manufacturer ID is not valid because it is not in the manufacturer table
 error 2 The gift ID is not valid because it is not in the gift table
 
 procedure remove_kid
-argument Kid ID
+argument int Kid ID
 error 1 The kid ID is not valid because it is not in the kid table
 
 procedure remove_Manufacturer
-argument Manufacturer ID
+argument int Manufacturer ID
 error 1 The manufacturer ID is not valid because it is not in the manufacturer table
 
 procedure remove_Ohoho
-argument Ohoho ID
-argument Santa ID
+argument int Ohoho ID
+argument int Santa ID
 error 1 The Ohoho ID is not valid because it is not in the Ohoho table
 error 2 The Santa ID is not valid because it is not in the Santa table
 
 procedure remove_Reindeer
-argument Name
+argument varchar100 Name
 error 1 The reindeer ID is not valid because it is not in the reindeer table
 
 procedure remove_Santa
-argument Santa ID
+argument int Santa ID
 error 1 The Santa ID is not valid because it is not in the Santa table
 
 procedure select_blackrock
@@ -148,25 +130,44 @@ procedure select_santa
 procedure select_wants
 
 procedure update_manufacturer
-argument Manufacturer ID
-argument Address
+argument int Manufacturer ID
+argument varchar100 Address
 error 1 The manufacturer ID is not valid because it is not in the manufacturer table
 
+procedure update_Ohoho
+argument int Ohoho ID
+argument varchar1000 New URL
+argument decimal18,3 New Length
+argument decimal18,3 New Girth
+argument decimal18,3 New Pitch
+argument int Santa ID
+error 1 The Ohoho ID is not valid because it is not in the Ohoho table
+error 2 The Santa ID is not valid because it is not in the Santa table
+error 3 Bad URL
+error 4 Values must be positive
+
 procedure update_reindeer
-argument New Name
-argument New Nose Color
-argument New Theme Song URL
-argument New FedBy
+argument varchar100 New Name
+argument varchar100 New Nose Color
+argument varchar100 New Theme Song URL
+argument int New FedBy
 error 1 The reindeer ID is not valid because it is not in the reindeer table
 error 2 The elf ID is not valid because it is not in the elf table
 
+procedure update_Santa
+argument int Santa ID
+argument boolean New IsSanta
+argument varchar100 New Name
+error 1 The Santa ID is not valid because it is not in the Santa table
+error 2 IsSanta must be 0/1
+
 procedure view_kid_needs
-argument Kid Name
+argument varchar100 Kid Name
 
 procedure view_kid_receives
-argument Kid Name
+argument varchar100 Kid Name
 
 procedure view_kid_wants
-argument Kid Name
+argument varchar100 Kid Name
 
 procedure view_kids
