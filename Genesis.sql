@@ -19,8 +19,8 @@ GO
 Create Table [dbo].[Person](
 	id int IDENTITY(1,1),
 	PersonName varchar(100),
-	DoB date,
-	Sex char,
+	DoB date CHECK(DoB >= '1753-1-1' AND DoB <= getDate()),
+	Sex char CHECK(Sex = 'M' OR Sex = 'F'),
 	
 	Primary Key(id)
 );
@@ -32,9 +32,9 @@ CREATE TABLE [dbo].[Manufacturer](
 
 Create Table [dbo].[Elf](
 	id int,
-	Wage money,
-	Height decimal(3),
-	EarLength decimal(3),
+	Wage money CHECK(Wage >= 0),
+	Height decimal(3) CHECK(Height > 0),
+	EarLength decimal(3) CHECK(EarLength > 0),
 	WorksIn int,
 
 	Foreign Key(id) References Person(id),
@@ -56,7 +56,7 @@ CREATE TABLE [dbo].[BlackRock](
 	PetName varchar(100),
 	RockName varchar(20),
 	Family varchar(20),
-	DoB datetime,
+	DoB datetime CHECK(DoB >= '1753-1-1' AND DoB <= getDate()),
 
 	FOREIGN KEY (id) REFERENCES Gift(id)
 );
@@ -116,8 +116,8 @@ Create Table [dbo].[Santa](
 Create Table [dbo].[Ohoho](
 	id int IDENTITY(1,1),
 	UrlLink varchar(1000),
-	Length decimal(3),
-	Girth decimal(3),
+	Length decimal(3) CHECK(Length > 0),
+	Girth decimal(3) CHECK(Girth > 0),
 	Pitch decimal(3),
 	Santa int,
 
