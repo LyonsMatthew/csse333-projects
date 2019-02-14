@@ -10,7 +10,7 @@ public class Main {
 
 	public static final String serverUsername =  "SodaBaseUserdavelltr29";
 	public static final String serverPassword = "Password123";
-	public static final String databaseName = "ChristmasWorkshop";
+	public static final String databaseName = "ChristmasWorkshop3";
 	public static final String serverName = "golem.csse.rose-hulman.edu";
 	
 	// grant execute on (stored_proc) to (username)

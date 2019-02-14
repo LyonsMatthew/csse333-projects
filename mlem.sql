@@ -9,6 +9,8 @@ GO
 ALTER ROLE [db_datawriter] ADD MEMBER [SodaBaseUserdavelltr29]
 GO
 
+Use ChristmasWorkshop2
+
 grant execute to FrontEndDude
 
 EXEC sp_addrolemember FrontEndDude, SodaBaseUserdavelltr29
