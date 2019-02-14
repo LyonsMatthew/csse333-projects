@@ -114,6 +114,9 @@ public class StoredProcedure {
 					System.out.println("Invalid month.");
 					return false;
 				}
+				if (Integer.parseInt(year) < 1753) {
+					System.out.println("Invalid year.");
+				}
 				int[] daysInMonth = new int[12];
 				daysInMonth[0] = 31; daysInMonth[1] = 28; daysInMonth[2] = 31;
 				daysInMonth[3] = 30; daysInMonth[4] = 31; daysInMonth[5] = 30;
@@ -167,20 +170,23 @@ public class StoredProcedure {
 		if (cs.execute()) {
 			rs = cs.getResultSet();
 		}
-		int returnValue = 0;
+		boolean resultSetPrinted = false;
+		resultSetPrinted = printResultSet(rs);
+		int returnValue = cs.getInt(1);
 		if (returnValueToMessage.containsKey(returnValue)) {
 			System.out.println("ERROR " + returnValue + ": " + returnValueToMessage.get(returnValue));
 			System.out.println("Operation aborted.");
 			return false;
 		}
-		printResultSet(rs);
+		if (!resultSetPrinted) {
+			System.out.println("Success!");
+		}
 		return true;
 	}
 	
-	public void printResultSet(ResultSet rs) throws SQLException {
+	public boolean printResultSet(ResultSet rs) throws SQLException {
 		if (rs == null) {
-			System.out.println("Success!");
-			return;
+			return false;
 		}
 		int col = rs.getMetaData().getColumnCount();
 		while (rs.next()) {
@@ -189,5 +195,6 @@ public class StoredProcedure {
 			}
 			System.out.println(rs.getMetaData().getColumnName(col) + ": " + rs.getString(col));
 		}
+		return true;
 	}
 }

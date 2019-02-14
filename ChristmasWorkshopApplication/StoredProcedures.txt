@@ -5,12 +5,17 @@ argument int Manufacturer ID
 error 1 The manufacturer ID is not valid because it is not in the manufacturer table
 
 procedure insert_Elf
-argument int Person ID
+argument varchar100 Name
+argument date Date of Birth
+argument varchar5 Sex
 argument money Wage
 argument decimal18,3 Height
 argument decimal18,3 Ear Length
 argument int Works In
 error 1 The manufacturer ID is not valid because it is not in the manufacturer table
+error 4 Date invalid
+error 3 Negative value forbidden
+error 5 Gender invalid; M or F
 
 procedure insert_gift
 argument varchar100 Name
@@ -25,11 +30,15 @@ error 1 HasCookies must be 0/1
 error 2 HasMilk must be 0/1
 
 procedure insert_Kid
-argument int Kid ID
+argument varchar100 Name
+argument date Date of Birth
+argument varchar5 Sex
 argument boolean IsNice
 argument int House
 error 2 IsNice must be 0/1
 error 3 The house ID is not valid because it is not in the house table
+error 4 Date invalid
+error 5 Gender invalid; M or F
 
 procedure insert_manufacturer
 argument varchar100 Manufacturer Address
@@ -42,13 +51,6 @@ argument decimal18,3 Pitch
 argument int Santa ID
 error 2 Bad URL
 error 1 Values must be positive
-
-procedure insert_Person
-argument varchar100 Name
-argument varchar100 Date of Birth
-argument varchar5 Sex
-error 2 Date invalid
-error 3 Gender invalid; M or F
 
 procedure insert_receives
 argument int Kid ID
@@ -75,14 +77,6 @@ argument int Gift ID
 error 1 The kid ID is not valid because it is not in the kid table
 error 2 The gift ID is not valid because it is not in the gift table
 error 3 The kid ID already wants that gift
-
-procedure MakeKidNaughty
-argument int Kid ID
-error 1 The kid ID is not valid because it is not in the kid table
-
-procedure MakeKidNice
-argument int Kid ID
-error 1 The kid ID is not valid because it is not in the kid table
 
 procedure remove_elf
 argument int Elf ID
