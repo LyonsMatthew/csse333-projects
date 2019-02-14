@@ -176,7 +176,7 @@ error 3 Bad URL
 error 4 Values must be positive
 
 procedure update_reindeer
-argument varchar100 New Name
+argument varchar100 Name
 argument varchar100 New Nose Color
 argument varchar100 New Theme Song URL
 argument int New FedBy
