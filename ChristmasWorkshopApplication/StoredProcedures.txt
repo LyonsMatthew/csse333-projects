@@ -123,9 +123,44 @@ procedure select_reindeer
 procedure select_santa
 procedure select_wants
 
+procedure update_blackrock
+argument int Black Rock ID
+argument varchar100 New Pet Name
+error 1 The blackrock ID is not valid because it is not in the blackrock table
+
+procedure update_elf
+argument int Elf ID
+argument money New Wage
+error 1 The elf ID is not valid because it is not in the elf table
+
+procedure update_gift
+argument int Gift ID
+argument varchar100 New Name
+error 1 The gift ID is not valid because it is not in the gift table
+
+procedure update_house
+argument int House ID
+argument varchar100 New Address
+argument boolean New Has Cookies
+argument boolean New Has Milk
+error 1 The house ID is not valid because it is not in the house table
+error 2 Has Cookies must be 0/1
+error 3 Has Milk must be 0/1
+
+procedure update_kid
+argument int Kid ID
+argument int New House ID
+argument varchar100 New Name
+argument varchar5 New Sex
+argument boolean New IsNice
+error 1 The kid ID is not valid because it is not in the kid table
+error 2 The house ID is not valid because it is not in the house table
+error 3 IsNice must be 0/1
+error 4 Sex must be M or F
+
 procedure update_manufacturer
 argument int Manufacturer ID
-argument varchar100 Address
+argument varchar100 New Address
 error 1 The manufacturer ID is not valid because it is not in the manufacturer table
 
 procedure update_Ohoho
@@ -154,6 +189,8 @@ argument boolean New IsSanta
 argument varchar100 New Name
 error 1 The Santa ID is not valid because it is not in the Santa table
 error 2 IsSanta must be 0/1
+
+procedure view_blackrocks
 
 procedure view_kid_needs
 argument varchar100 Kid Name
