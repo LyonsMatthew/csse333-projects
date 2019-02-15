@@ -1,4 +1,12 @@
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStream;
+import java.io.InputStreamReader;
+import java.io.OutputStream;
+import java.io.PrintStream;
+import java.lang.ProcessBuilder.Redirect;
 import java.sql.SQLException;
+import java.util.Base64;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.Scanner;
@@ -9,13 +17,15 @@ import christmasworkshop.services.StoredProcedure;
 public class Main {
 
 	public static final String serverUsername =  "SodaBaseUserdavelltr29";
-	public static final String serverPassword = "Password123";
-	public static final String databaseName = "ChristmasWorkshop";
+	public static final String serverPassword = "UGFzc3dvcmQxMjM=";
+	public static final String databaseName = "ChristmasWorkshop5";
 	public static final String serverName = "golem.csse.rose-hulman.edu";
+	public static final Base64.Encoder enc = Base64.getEncoder();
+	public static final Base64.Decoder dec = Base64.getDecoder();
 	
 	// grant execute on (stored_proc) to (username)
 	
-	public static void main(String[] args) throws SQLException {
+	public static void main(String[] args) throws SQLException, IOException {
 		//ApplicationRunner appRunner = new ApplicationRunner();
 		//appRunner.runApplication(args);
 		
@@ -33,7 +43,7 @@ public class Main {
 //		String password = in.next();
 		
 		System.out.println("Logging in...");
-		boolean success = con.connect(serverUsername, serverPassword);
+		boolean success = con.connect(serverUsername, new String(dec.decode(serverPassword.getBytes())));
 		if (!success) System.exit(1);
 		System.out.println("Connected!");
 		
@@ -45,10 +55,17 @@ public class Main {
 			command = command.replaceAll(" ", "");
 			command = command.replaceAll("_", "");
 			command = command.toLowerCase();
-			if (spMap.containsKey(command)) {
+			if (command.equals("help")) {
+				for(String s : spMap.keySet()) {
+					System.out.print(s + " ");
+				}
+				System.out.println("");
+			} else if (command.equals("quit")) {
+				break;
+			} else if (spMap.containsKey(command)) {
 				spMap.get(command).exec();
 			}
-		}		
+		}
 	}
 
 }
