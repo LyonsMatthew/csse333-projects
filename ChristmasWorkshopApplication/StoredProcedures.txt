@@ -78,6 +78,10 @@ error 1 The kid ID is not valid because it is not in the kid table
 error 2 The gift ID is not valid because it is not in the gift table
 error 3 The kid ID already wants that gift
 
+procedure remove_blackrock
+argument int Black Rock ID
+error 1 The blackrock ID is not valid because it is not in the blackrock table
+
 procedure remove_elf
 argument int Elf ID
 error 1 The elf ID is not valid because it is not in the elf table
@@ -87,6 +91,10 @@ argument int Gift ID
 argument int Manufacturer ID
 error 1 The manufacturer ID is not valid because it is not in the manufacturer table
 error 2 The gift ID is not valid because it is not in the gift table
+
+procedure remove_house
+argument int House ID
+error 1 The house ID is not valid because it is not in the house table
 
 procedure remove_kid
 argument int Kid ID
@@ -102,6 +110,11 @@ argument int Santa ID
 error 1 The Ohoho ID is not valid because it is not in the Ohoho table
 error 2 The Santa ID is not valid because it is not in the Santa table
 
+procedure remove_receives
+argument int Kid ID
+argument int Gift ID
+error 1 That id combination is not valid
+
 procedure remove_Reindeer
 argument varchar100 Name
 error 1 The reindeer ID is not valid because it is not in the reindeer table
@@ -110,6 +123,11 @@ procedure remove_Santa
 argument int Santa ID
 error 1 The Santa ID is not valid because it is not in the Santa table
 
+procedure remove_wants
+argument int Kid ID
+argument int Gift ID
+error 1 That id combination is not valid
+
 procedure select_blackrock
 procedure select_elf
 procedure select_gift
@@ -117,7 +135,6 @@ procedure select_house
 procedure select_kid
 procedure select_manufacturer
 procedure select_ohoho
-procedure select_person
 procedure select_receives
 procedure select_reindeer
 procedure select_santa
