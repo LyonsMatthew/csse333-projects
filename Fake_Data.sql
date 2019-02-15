@@ -1,4 +1,4 @@
-USE ChristmasWorkshop
+USE ChristmasWorkshop4
 GO
 
 EXEC dbo.insert_House '1991 Santa Lane', 1, 0;
@@ -62,11 +62,11 @@ EXEC dbo.insert_Elf 'Brown Olive that tastes like Potatoe', '1952-09-12', 'F', 3
 EXEC dbo.insert_Elf 'uhbgnjiuhbj', '1897-03-25', 'M', 19456, 9.8, 4.0, 4;
 EXEC dbo.insert_Elf 'poiuytrewsxcvbhjuyhgtf', '1765-08-17', 'F', 9000, 4.5, 0.2, 4;
 
-EXEC dbo.insert_Reindeer 'Rudolph', 'Red Nugget', 'https://www.youtube.com/watch?v=0byH9h1ClBY', 1;
-EXEC dbo.insert_Reindeer 'Thrasher', 'Black', 'https://www.youtube.com/watch?v=kJmAhomTRkg', 2;
-EXEC dbo.insert_Reindeer 'Prancer', 'Black', 'https://www.youtube.com/watch?v=D5QSGtdEPDE', 2;
-EXEC dbo.insert_Reindeer 'Dasher', 'Brown', 'https://www.youtube.com/watch?v=5VwcZF0QX0s', 4;
-EXEC dbo.insert_Reindeer 'Blitzen', 'Black', 'https://www.youtube.com/watch?v=-KbG1NEpKZw', 5;
+EXEC dbo.insert_Reindeer 'Rudolph', 'Red Nugget', 'https://www.youtube.com/watch?v=0byH9h1ClBY', 11;
+EXEC dbo.insert_Reindeer 'Thrasher', 'Black', 'https://www.youtube.com/watch?v=kJmAhomTRkg', 11;
+EXEC dbo.insert_Reindeer 'Prancer', 'Black', 'https://www.youtube.com/watch?v=D5QSGtdEPDE', 12;
+EXEC dbo.insert_Reindeer 'Dasher', 'Brown', 'https://www.youtube.com/watch?v=5VwcZF0QX0s', 13;
+EXEC dbo.insert_Reindeer 'Blitzen', 'Black', 'https://www.youtube.com/watch?v=-KbG1NEpKZw', 12;
 
 EXEC dbo.insert_wants 1, 10;
 EXEC dbo.insert_wants 2, 9;

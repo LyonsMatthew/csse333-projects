@@ -191,14 +191,6 @@ error 1 The Santa ID is not valid because it is not in the Santa table
 error 2 IsSanta must be 0/1
 
 procedure view_blackrocks
-
-procedure view_kid_needs
-argument varchar100 Kid Name
-
 procedure view_kid_receives
-argument varchar100 Kid Name
-
 procedure view_kid_wants
-argument varchar100 Kid Name
-
 procedure view_kids

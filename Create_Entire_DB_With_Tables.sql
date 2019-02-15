@@ -35,8 +35,8 @@ CREATE TABLE [dbo].[Manufacturer](
 Create Table [dbo].[Elf](
 	id int,
 	Wage money CHECK(Wage >= 0),
-	Height decimal(3) CHECK(Height > 0),
-	EarLength decimal(3) CHECK(EarLength > 0),
+	Height decimal(15,3) CHECK(Height > 0),
+	EarLength decimal(15,3) CHECK(EarLength > 0),
 	WorksIn int,
 
 	Foreign Key(id) References Person(id),
@@ -118,9 +118,9 @@ Create Table [dbo].[Santa](
 Create Table [dbo].[Ohoho](
 	id int IDENTITY(1,1),
 	UrlLink varchar(1000),
-	Length decimal(3) CHECK(Length > 0),
-	Girth decimal(3) CHECK(Girth > 0),
-	Pitch decimal(3),
+	Length decimal(15,3) CHECK(Length > 0),
+	Girth decimal(15,3) CHECK(Girth > 0),
+	Pitch decimal(15,3),
 	Santa int,
 
 	Primary Key(id),
