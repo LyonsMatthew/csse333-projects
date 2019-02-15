@@ -98,6 +98,10 @@ public class StoredProcedure {
 			}
 		} else if (type.startsWith("date")) {
 			String[] dateParts = arguments.get(i).split("-");
+			if (dateParts.length != 3) {
+				System.out.println("Must be in format YYYY-MM-DD.");
+				return false;
+			}
 			String year = dateParts[0];
 			String month = dateParts[1];
 			String day = dateParts[2];

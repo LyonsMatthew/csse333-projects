@@ -18,7 +18,7 @@ public class Main {
 
 	public static final String serverUsername =  "SodaBaseUserdavelltr29";
 	public static final String serverPassword = "UGFzc3dvcmQxMjM=";
-	public static final String databaseName = "ChristmasWorkshop4";
+	public static final String databaseName = "ChristmasWorkshop5";
 	public static final String serverName = "golem.csse.rose-hulman.edu";
 	public static final Base64.Encoder enc = Base64.getEncoder();
 	public static final Base64.Decoder dec = Base64.getDecoder();
@@ -28,12 +28,6 @@ public class Main {
 	public static void main(String[] args) throws SQLException, IOException {
 		//ApplicationRunner appRunner = new ApplicationRunner();
 		//appRunner.runApplication(args);
-		
-		String temp = enc.encodeToString(serverPassword.getBytes());
-		System.out.println(new String(serverPassword.getBytes()));
-		System.out.println(temp);
-		byte[] lemp = dec.decode(temp.getBytes());
-		System.out.println();
 		
 		DatabaseConnectionService con = new DatabaseConnectionService(serverName, databaseName);
 		Scanner in = new Scanner(System.in);
